@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
         .verifyIdToken(idToken)
         .then(decodedToken => {
             req.user = decodedToken;
-            console.log(decodedToken);
+            //console.log(decodedToken);
             return adminImport.db.collection('users')
                 .where('userId', '==', req.user.uid)
                 .limit(1)
@@ -28,5 +28,5 @@ module.exports = (req, res, next) => {
         .catch(err =>{
             console.error('Error while verifying token', err);
             return res.status(403).json(err);
-        })
+        });
 }
