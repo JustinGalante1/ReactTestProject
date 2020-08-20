@@ -83,7 +83,7 @@ exports.login = (req, res) => {
         })
         .catch(err =>{
             console.error(err);
-            return res.status(403).json({general:  "Wrong crednetials, please try again"});
+            return res.status(403).json({general:  "Wrong credentials, please try again"});
         });
 };
 
